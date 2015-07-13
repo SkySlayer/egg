@@ -3,7 +3,7 @@
 #include "windows.h"
 #include "math.h"
 
-int width,height,depth,size,allsize;
+int width,height,depth,size,allsize; //rename this
 
 void readraw1(char filename2[])
 {
@@ -134,7 +134,7 @@ bool Erosion(unsigned char *imBits,int width,int height)
 	unsigned char *lpMarks=new unsigned char [nbWidth*imH];
 
 
-	//¸¯Ê´
+	//è…èš€
 	for(y=1;y<imH-1;y++)
 	{
 		for(x=1;x<imW-1;x++)
@@ -157,10 +157,10 @@ bool Erosion(unsigned char *imBits,int width,int height)
 	{
 		for(x=1;x<imW-1;x++)
 		{
-			//Ä¿±êÍ¼ÏñÖĞº¬ÓĞ0ºÍ255ÍâµÄÆäËü»Ò¶ÈÖµ
+			//ç›®æ ‡å›¾åƒä¸­å«æœ‰0å’Œ255å¤–çš„å…¶å®ƒç°åº¦å€¼
 			if(imBits[x+y*nbWidth] != 255 && imBits[x+y*nbWidth] != 0)
 			{
-				printf("Ä¿±êÍ¼ÏñÖĞº¬ÓĞ0ºÍ255ÍâµÄÆäËü»Ò¶ÈÖµ\n");
+				printf("ç›®æ ‡å›¾åƒä¸­å«æœ‰0å’Œ255å¤–çš„å…¶å®ƒç°åº¦å€¼\n");
 				delete lpMarks;
 				return 0;
 			}
@@ -184,7 +184,7 @@ bool Dilation(unsigned char *imBits,int width,int height)
 	unsigned char *lpMarks=new unsigned char [nbWidth*imH];
 
 
-	//ÅòÕÍ
+	//è†¨èƒ€
 	for(y=1;y<imH-1;y++)
 	{
 		for(x=1;x<imW-1;x++)
@@ -207,10 +207,10 @@ bool Dilation(unsigned char *imBits,int width,int height)
 	{
 		for(x=1;x<imW-1;x++)
 		{
-			//Ä¿±êÍ¼ÏñÖĞº¬ÓĞ0ºÍ255ÍâµÄÆäËü»Ò¶ÈÖµ
+			//ç›®æ ‡å›¾åƒä¸­å«æœ‰0å’Œ255å¤–çš„å…¶å®ƒç°åº¦å€¼
 			if(imBits[x+y*nbWidth] != 255 && imBits[x+y*nbWidth] != 0)
 			{
-				printf("Ä¿±êÍ¼ÏñÖĞº¬ÓĞ0ºÍ255ÍâµÄÆäËü»Ò¶ÈÖµ");
+				printf("ç›®æ ‡å›¾åƒä¸­å«æœ‰0å’Œ255å¤–çš„å…¶å®ƒç°åº¦å€¼");
 				delete lpMarks;
 				return 0;
 			}  
@@ -264,7 +264,7 @@ int test(unsigned char *buffer,int x,int y,int z,int width, int height,int depth
 		}
 	}
 
-	//È·¶¨µ±Ç°µãµÄÑÕÉ«
+	//ç¡®å®šå½“å‰ç‚¹çš„é¢œè‰²
 	if(i>j)
 	{
 		m_bColor=0;
@@ -403,7 +403,7 @@ bool SaveBmp(char *bmpName,unsigned char *pBmpBuf,int width,int height)
 	FILE *fp;
 	if( (fp = fopen(bmpName,"wb") )== NULL)   
 	{
-		printf("´ò¿ªÊ§°Ü!");
+		printf("æ‰“å¼€å¤±è´¥!");
 		return 0;
 	}
 	int i,j;
@@ -439,7 +439,7 @@ bool SaveBmp(char *bmpName,unsigned char *pBmpBuf,int width,int height)
 		fwrite(&palette[i].rgbRed,sizeof(unsigned char),1,fp);  
 		fwrite(&palette[i].rgbReserved,sizeof(unsigned char),1,fp);  
 	} 
-	if (width<lineByte)  //Èç¹ûÓĞĞ§Êı¾İ¿í¶ÈĞ¡ÓÚBMP¸ñÊ½ÒªÇó¿í¶È  
+	if (width<lineByte)  //å¦‚æœæœ‰æ•ˆæ•°æ®å®½åº¦å°äºBMPæ ¼å¼è¦æ±‚å®½åº¦  
 	{  
 		unsigned char *imgBufBMP=new unsigned char [lineByte*height];   
 		for (i=0;i<height;i++)  
@@ -481,7 +481,7 @@ void main()
 	unsigned char *buf2=new unsigned char[size],px[9];
 	readraw2(CLIP_fileName1,data);
 
-    ///////////  ÂË²¨²ÎÊıÉèÖÃ 
+    ///////////  æ»¤æ³¢å‚æ•°è®¾ç½® 
 	int i,j,k,s,num,m,n;
     float   xihe,he,diff,xishu1,xishu2,temp,temp1,temp2,Yuzhi,Yuzhi1,alpha;
 	int     length,length2,length3,q,p,cishu;
@@ -493,8 +493,8 @@ void main()
 	Yuzhi=alpha*120; 
 
 	length=8;//
-    length3=3;//ÏàËÆ´° 
-	length2=3;//ËÑË÷´°
+    length3=3;//ç›¸ä¼¼çª— 
+	length2=3;//æœç´¢çª—
 	Yuzhi1=Yuzhi*Yuzhi;
 
 	for(k=0;k<depth;k++)
@@ -510,7 +510,7 @@ void main()
 			}
 		}
 
-       //±ßÔµ¼ì²â 
+       //è¾¹ç¼˜æ£€æµ‹ 
      for(i=length/2;i<height-length/2;i++)
 	 {
      lpDst1=data+k*size+width*(i+length3/2);
@@ -535,8 +535,8 @@ void main()
 	 }
 
 
-        //·Ç¾Ö²¿¾ùÖµ 
-        //±£´æ¾ØÕó
+        //éå±€éƒ¨å‡å€¼ 
+        //ä¿å­˜çŸ©é˜µ
         for(i=length/2;i<height-length/2;i++)
 		{
 		lpDst2=data+k*size+width*(i+length3/2);
@@ -553,7 +553,7 @@ void main()
 		}
 		}
 
-		//¿ªÊ¼ÂË²¨
+		//å¼€å§‹æ»¤æ³¢
 		for(i=length/2;i<height-length/2;i++)
 		{
         lpDst2=buf1+width*i;
@@ -599,7 +599,7 @@ void main()
 		 }
 		}
 		}
-        //·Ç¾Ö²¿¾ùÖµ 
+        //éå±€éƒ¨å‡å€¼ 
 		SaveBmp(file_name,buf1,width,height);
 	}
 
